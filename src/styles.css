@@ -32,19 +32,19 @@
   --background: oklch(1 0 0);
   --foreground: oklch(0.235 0.034 264);
   --card: oklch(1 0 0);
-  --primary: oklch(0.53 0.21 259);
+  --primary: oklch(0.285 0.065 251);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.966 0.007 255);
   --muted: oklch(0.975 0.005 255);
   --muted-foreground: oklch(0.535 0.024 259);
   --accent: oklch(0.953 0.025 255);
   --border: oklch(0.922 0.011 255);
-  --success: oklch(0.515 0.137 150);
+  --success: oklch(0.467 0.12 149);
   --success-soft: oklch(0.955 0.025 151);
-  --warning: oklch(0.65 0.167 48);
+  --warning: oklch(0.73 0.14 75);
   --warning-soft: oklch(0.96 0.028 65);
   --destructive: oklch(0.58 0.2 27);
-  --ink: oklch(0.225 0.044 262);
+  --ink: oklch(0.285 0.065 251);
   --ink-on: oklch(1 0 0);
   --ink-muted: oklch(0.8 0.015 255);
   --shadow-soft: 0 8px 28px oklch(0.25 0.05 258 / 0.055);
@@ -53,6 +53,10 @@
   --shadow-lift: 0 2px 4px oklch(0.25 0.04 258 / 0.04), 0 12px 30px oklch(0.25 0.04 258 / 0.09);
   --shadow-asset: 0 2px 6px oklch(0.25 0.04 258 / 0.05), 0 18px 42px oklch(0.25 0.04 258 / 0.11);
   --border-emphasis: color-mix(in oklab, var(--primary) 26%, var(--border));
+  --frame-border: color-mix(in oklab, var(--primary) 12%, var(--border));
+  --frame-shadow: 0 1px 3px oklch(0.285 0.065 251 / 0.045), 0 14px 32px oklch(0.285 0.065 251 / 0.065);
+  --frame-radius: 8px;
+  --icon-stroke: 1.5;
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --hero-shade: linear-gradient(
     90deg,
@@ -68,7 +72,7 @@
   );
 }
 .theme-contractor {
-  --primary: oklch(0.53 0.21 259);
+  --primary: oklch(0.285 0.065 251);
   --accent: oklch(0.953 0.025 255);
 }
 .theme-professional {
@@ -3810,7 +3814,12 @@
 [data-ui="button"][data-variant="default"] { box-shadow: var(--shadow-depth); }
 [data-ui="button"]:active:not(:disabled) { transform: translateY(1px); }
 .service-card, .job-card, .professional-card, .stat-card { box-shadow: var(--shadow-depth); transition: box-shadow 280ms ease, border-color 280ms ease, transform 280ms var(--motion-ease); }
-.preview-window, .registration-photo, .institutional-band img { box-shadow: var(--shadow-asset); border: 1px solid var(--border); }
+.preview-window, .registration-photo { box-shadow: var(--frame-shadow); border: 1px solid var(--frame-border); border-radius: var(--frame-radius); }
+.institutional-band img { border-block: 1px solid var(--frame-border); }
+.audience-hero { border-bottom: 1px solid var(--frame-border); }
+.service-card, .job-card, .professional-card, .stat-card { border-color: var(--frame-border); border-radius: var(--frame-radius); }
+.service-icon, .preview-job-icon, .workspace-icon, .job-org-icon { border: 1px solid var(--frame-border); }
+.theme-contractor svg.lucide, .theme-professional svg.lucide, .theme-admin svg.lucide { stroke-width: var(--icon-stroke); stroke-linecap: round; stroke-linejoin: round; }
 .chat-float { transition: bottom 420ms var(--motion-ease); }
 .chat-trigger { position: relative; min-height: 48px; box-shadow: var(--shadow-lift); animation: chat-arrive 700ms var(--motion-ease) both; }
 .chat-trigger > svg { transform-origin: 50% 75%; animation: chat-greet 1400ms var(--motion-ease) 900ms 1; }

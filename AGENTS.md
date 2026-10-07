@@ -17,6 +17,8 @@
 - Render developer attribution through one shared credit component in public footers and dashboard endings; every initial page must remain covered.
 - Keep app-store indicators non-interactive until real app URLs are supplied; the prototype must not imply completed downloads.
 - Use contextual brand labels with the unchanged official logo asset; only contextual photos vary by page.
+- Composite the original full logo artwork onto contextual uniforms with garment-aware perspective and natural scale; deterministic compositing prevents generative logo distortion.
+- Use shared semantic frame and icon tokens for visual refinement; this keeps public pages and dashboards coherent without changing their structure.
 - Observe the public credit footer to reposition only the floating chat launcher; this preserves page layout and prevents credit overlap.
 - Keep motion and depth in semantic global tokens and shared button hooks; reduced-motion preferences disable decorative movement.
 - Keep dashboard drawers independently scrollable and dialogs viewport-bounded with Escape dismissal and focus restoration; short screens must reach every existing action.
