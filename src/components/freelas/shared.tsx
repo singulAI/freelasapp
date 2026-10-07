@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import logoAsset from "@/assets/freelas-logo.png.asset.json";
+import logo from "@/assets/Logo Freelas.png";
 export type Audience = "contractor" | "professional" | "admin";
 export const services = [
   "Limpeza e conservação",
@@ -27,15 +27,25 @@ export const services = [
   "Cozinheiras",
   "Segurança",
 ];
-export function Logo({ small = false, context }: { small?: boolean; context?: "Coop" | "Empresas" | "App" | "Admin" | undefined }) {
+export function Logo({
+  small = false,
+  context,
+}: {
+  small?: boolean;
+  context?: "Coop" | "Empresas" | "App" | "Admin" | undefined;
+}) {
   return (
     <Link to="/" className={`brand ${small ? "brand-small" : ""}`} aria-label="Freelas, início">
-      <img className="official-logo" src={logoAsset.url} width={1920} height={623} alt="Freelas" />
+      <img className="official-logo" src={logo} width={2172} height={724} alt="Freelas" />
       {context && <span className="brand-context">{context}</span>}
     </Link>
   );
 }
-export function Header({ context }: { context?: "Coop" | "Empresas" | "App" | "Admin" | undefined }) {
+export function Header({
+  context,
+}: {
+  context?: "Coop" | "Empresas" | "App" | "Admin" | undefined;
+}) {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
@@ -86,15 +96,45 @@ export function Header({ context }: { context?: "Coop" | "Empresas" | "App" | "A
   );
 }
 export function DeveloperCredit() {
-  return <span className="developer-credit">Desenvolvido por - <a href="https://rrv.digital" target="_blank" rel="noopener noreferrer">rrv.digital</a></span>;
+  return (
+    <span className="developer-credit">
+      Desenvolvido por -{" "}
+      <a href="https://rrv.digital" target="_blank" rel="noopener noreferrer">
+        rrv.digital
+      </a>
+    </span>
+  );
 }
 function StoreIndicators() {
   return (
     <div className="store-area">
-      <div className="store-heading"><strong>Freelas App</strong><span>Em breve</span></div>
+      <div className="store-heading">
+        <strong>Freelas App</strong>
+        <span>Em breve</span>
+      </div>
       <div className="store-indicators" aria-label="Aplicativo em breve para iOS e Android">
-        <div className="store-badge" aria-label="App Store, em breve"><Apple aria-hidden="true" /><div><small>Disponível em breve na</small><strong>App Store</strong></div></div>
-        <div className="store-badge" aria-label="Google Play, em breve"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 3v18l16-9L4 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/><path d="m4 3 11 12M4 21l11-12" stroke="currentColor" strokeWidth="1.5"/></svg><div><small>Disponível em breve no</small><strong>Google Play</strong></div></div>
+        <div className="store-badge" aria-label="App Store, em breve">
+          <Apple aria-hidden="true" />
+          <div>
+            <small>Disponível em breve na</small>
+            <strong>App Store</strong>
+          </div>
+        </div>
+        <div className="store-badge" aria-label="Google Play, em breve">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M4 3v18l16-9L4 3Z"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinejoin="round"
+            />
+            <path d="m4 3 11 12M4 21l11-12" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+          <div>
+            <small>Disponível em breve no</small>
+            <strong>Google Play</strong>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -172,7 +212,9 @@ export function Chat() {
     setText("");
   }
   return (
-    <div className={`chat-float ${footerVisible ? "chat-clear-footer" : ""} ${open ? "chat-is-open" : ""}`}>
+    <div
+      className={`chat-float ${footerVisible ? "chat-clear-footer" : ""} ${open ? "chat-is-open" : ""}`}
+    >
       {open && (
         <section className="chat-panel" aria-label="Atendimento demonstrativo">
           <div className="chat-head">

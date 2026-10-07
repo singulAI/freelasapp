@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 import teamImage from "@/assets/freelas-team-refined.jpg";
 import empresasImage from "@/assets/freelas-empresas-refined.jpg";
 import coopImage from "@/assets/freelas-coop-refined.jpg";
-import logoAsset from "@/assets/freelas-logo.png.asset.json";
+import logo from "@/assets/Logo Freelas.png";
 import { Avatar, CheckItem, PublicLayout, services, Steps, TrustBand } from "./shared";
 function InterfacePreview({ professional = false }: { professional?: boolean }) {
   return (
@@ -36,7 +36,7 @@ function InterfacePreview({ professional = false }: { professional?: boolean }) 
       </div>
       <div className="preview-content">
         <div className="preview-sidebar">
-          <img className="mini-brand" src={logoAsset.url} width={1920} height={623} alt="Freelas" />
+          <img className="mini-brand" src={logo} width={2172} height={724} alt="Freelas" />
           <Building2 />
           <BriefcaseBusiness />
           <Users />
@@ -71,9 +71,7 @@ function InterfacePreview({ professional = false }: { professional?: boolean }) 
             </div>
           </div>
           <div className="preview-list-title">
-            <strong>
-              {professional ? "Oportunidades para você" : "Cooperados em destaque"}
-            </strong>
+            <strong>{professional ? "Oportunidades para você" : "Cooperados em destaque"}</strong>
             <span>
               Ver todos <ArrowRight size={12} />
             </span>
@@ -119,9 +117,7 @@ export function Landing() {
     <PublicLayout>
       <main>
         <section className="landing-hero container">
-          <div className="hero-eyebrow">
-            CONEXÕES LOCAIS. POSSIBILIDADES REAIS.
-          </div>
+          <div className="hero-eyebrow">CONEXÕES LOCAIS. POSSIBILIDADES REAIS.</div>
           <h1>
             Talentos que conectam.
             <br />
@@ -282,10 +278,22 @@ export function Landing() {
 }
 export function AudiencePage({ professional = false }: { professional?: boolean }) {
   return (
-    <PublicLayout theme={professional ? "professional" : "contractor"} brandContext={professional ? "Coop" : "Empresas"}>
+    <PublicLayout
+      theme={professional ? "professional" : "contractor"}
+      brandContext={professional ? "Coop" : "Empresas"}
+    >
       <main>
         <section className="audience-hero">
-          <img src={professional ? coopImage : empresasImage} width={1536} height={1024} alt={professional ? "Cooperados de cozinha e atendimento prontos para trabalhar" : "Equipe alinhando necessidades de contratação"} />
+          <img
+            src={professional ? coopImage : empresasImage}
+            width={1536}
+            height={1024}
+            alt={
+              professional
+                ? "Cooperados de cozinha e atendimento prontos para trabalhar"
+                : "Equipe alinhando necessidades de contratação"
+            }
+          />
           <div className="audience-hero-overlay" />
           <div className="container">
             <div className="audience-hero-copy">

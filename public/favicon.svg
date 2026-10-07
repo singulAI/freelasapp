@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#fff"/><circle cx="31" cy="33" r="24" fill="none" stroke="#2461e8" stroke-width="4"/><path d="m17 33 10-10 9 7 9-4 7 10-13 10-9-4-7-1z" fill="none" stroke="#2461e8" stroke-width="3" stroke-linejoin="round"/><circle cx="50" cy="13" r="8" fill="#258749" stroke="#fff" stroke-width="3"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Freelas</title>
+  <defs>
+    <linearGradient id="tile" x1="8" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#367cff"/>
+      <stop offset="1" stop-color="#143b9d"/>
+    </linearGradient>
+    <linearGradient id="route" x1="14" y1="44" x2="49" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b9d8ff"/>
+      <stop offset=".55" stop-color="#fff"/>
+      <stop offset="1" stop-color="#d9f7e4"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="15" y1="5" x2="42" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".27"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="5" y="9" width="54" height="52" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+  <rect x="5" y="8" width="54" height="54" rx="16" fill="#071b50" opacity=".34" filter="url(#shadow)"/>
+  <rect x="4" y="3" width="56" height="56" rx="16" fill="url(#tile)"/>
+  <path d="M20 4h24a16 16 0 0 1 16 16v8c-11-7-25-10-42-7-5 1-9 2-14 4v-5A16 16 0 0 1 20 4Z" fill="url(#shine)"/>
+  <path d="m16 43 14-13 14-11" fill="none" stroke="#0d2e7b" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" opacity=".38"/>
+  <path d="m16 41 14-13 14-10" fill="none" stroke="url(#route)" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+  <circle cx="16" cy="41" r="6" fill="#f5f9ff" stroke="#b6d4ff" stroke-width="2"/>
+  <circle cx="30" cy="28" r="5" fill="#fff" stroke="#cbdfff" stroke-width="2"/>
+  <circle cx="44" cy="18" r="7" fill="#31b56c" stroke="#e6fff0" stroke-width="2.5"/>
+  <circle cx="44" cy="18" r="2" fill="#eafff1"/>
+</svg>
