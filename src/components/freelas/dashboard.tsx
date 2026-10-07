@@ -969,7 +969,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                       ["Clínica Bem Viver", "Portaria e recepção", "Contagem"],
                       ["Associação Nova Vida", "Garçons", "Contagem"],
                       ["Espaço Sabor Mineiro", "Bares e restaurantes", "Betim"],
-                    ].map(([org, area, city], i) => (
+                    ].map(([org = "", area, city], i) => (
                       <tr key={org}>
                         <td>
                           <div className="table-name">
@@ -1059,7 +1059,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                       ["Instituto Horizonte", "Dúvida sobre oportunidade", "07 out, 2026"],
                       ["Mariana Santos", "Atualização de perfil", "06 out, 2026"],
                       ["Clínica Bem Viver", "Nova parceria", "05 out, 2026"],
-                    ].map(([name, subject, date], i) => (
+                    ].map(([name = "", subject, date], i) => (
                       <tr key={name}>
                         <td>
                           <div className="table-name">
