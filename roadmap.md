@@ -23,3 +23,10 @@
 - [x] Correct sidebar and modal scrolling and accessible dismissal
 - [x] Verify all nine pages and existing panel actions across screen sizes
 - [x] Resolve overlap and spacing defects without changing information or sections
+
+## Reference-based visual finish
+- [ ] Preserve official logo unchanged; use the most coherent institutional finish
+- [ ] Refine existing frames, borders, continuous-line icons and asset depth without changing sections or functions
+- [ ] Apply discreet official branding to suitable uniforms; companies image brands only the collaborator
+- [ ] Update visible audience terminology to cooperado/cooperados while preserving route destinations
+- [ ] Verify all nine pages, photos and existing navigation across screen sizes
