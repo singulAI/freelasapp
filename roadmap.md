@@ -14,7 +14,12 @@
 - [x] Include safe demonstration names and verify all nine pages
 
 ## Motion, depth and demo consistency
-- [ ] Keep the floating chat clear of desktop credits
-- [ ] Refine discreet launcher, button and card motion with reduced-motion support
-- [ ] Apply strategic asset borders and layered shadows
-- [ ] Align demo identities and examples and verify responsive interactions
+- [x] Keep the floating chat clear of desktop credits
+- [x] Refine discreet launcher, button and card motion with reduced-motion support
+- [x] Apply strategic asset borders and layered shadows
+- [x] Align demo identities and examples and verify responsive interactions
+
+## Final navigation audit
+- [x] Correct sidebar and modal scrolling and accessible dismissal
+- [x] Verify all nine pages and existing panel actions across screen sizes
+- [x] Resolve overlap and spacing defects without changing information or sections

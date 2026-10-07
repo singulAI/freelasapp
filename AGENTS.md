@@ -19,3 +19,4 @@
 - Use contextual brand labels with the unchanged official logo asset; only contextual photos vary by page.
 - Observe the public credit footer to reposition only the floating chat launcher; this preserves page layout and prevents credit overlap.
 - Keep motion and depth in semantic global tokens and shared button hooks; reduced-motion preferences disable decorative movement.
+- Keep dashboard drawers independently scrollable and dialogs viewport-bounded with Escape dismissal and focus restoration; short screens must reach every existing action.

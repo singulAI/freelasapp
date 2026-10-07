@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -85,6 +85,39 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
   const [conversation, setConversation] = useState(role === "professional" ? "Instituto Horizonte" : "Mariana Santos");
   const [tab, setTab] = useState("Todas");
   const [notifications, setNotifications] = useState(false);
+  const dialogRef = useRef<HTMLElement>(null);
+  const sidebarRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (!modal && !mobile) return;
+    const previousOverflow = document.body.style.overflow;
+    const previousFocus = document.activeElement;
+    document.body.style.overflow = "hidden";
+    const dialog = modal ? dialogRef.current : sidebarRef.current;
+    dialog?.focus();
+    function handleKey(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setModal("");
+        setMobile(false);
+        return;
+      }
+      if (event.key !== "Tab" || !dialog) return;
+      const controls = Array.from(dialog.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], input, select, textarea, [tabindex="0"]'));
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (!first || !last) return;
+      if (event.shiftKey && (document.activeElement === first || document.activeElement === dialog)) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault(); first.focus();
+      }
+    }
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKey);
+      if (previousFocus instanceof HTMLElement) previousFocus.focus();
+    };
+  }, [modal, mobile]);
   const nav = admin
     ? [
         [LayoutDashboard, "Visão geral"],
@@ -116,6 +149,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
           [Settings, "Configurações"],
         ];
   function changeView(name: string) {
+    setMobile(false);
     if (admin && name !== "Visão geral") {
       setNotice("Esta área faz parte da próxima etapa de validação.");
       return;
@@ -131,7 +165,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
   );
   return (
     <div className={`dashboard-layout theme-${role} ${collapsed ? "sidebar-collapsed" : ""}`}>
-      <aside className={`dashboard-sidebar ${mobile ? "sidebar-mobile-open" : ""}`}>
+      <aside ref={sidebarRef} tabIndex={mobile ? -1 : undefined} className={`dashboard-sidebar ${mobile ? "sidebar-mobile-open" : ""}`}>
         <Logo small context={admin ? "Admin" : professional ? "Coop" : "Empresas"} />
         <div className="workspace-select">
           <span className="workspace-icon">
@@ -180,6 +214,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               <Button
                 variant="outline"
                 onClick={() => {
+                  setMobile(false);
                   admin
                     ? setNotice("Atendimento disponível na próxima etapa.")
                     : setView("Mensagens");
@@ -220,6 +255,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               variant="ghost"
               className="dashboard-mobile-menu"
               aria-label="Abrir menu do painel"
+              aria-expanded={mobile}
               onClick={() => setMobile(!mobile)}
             >
               <Menu />
@@ -864,6 +900,8 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
       {modal && (
         <div className="modal-overlay" onClick={() => setModal("")}>
           <section
+            ref={dialogRef}
+            tabIndex={-1}
             className="demo-modal"
             role="dialog"
             aria-modal="true"
@@ -933,6 +971,8 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                 <Button
                   className="w-full"
                   onClick={() => {
+                    setConversation(modal.replace("Perfil: ", ""));
+                    setMessages([]);
                     setModal("");
                     changeView("Mensagens");
                   }}
