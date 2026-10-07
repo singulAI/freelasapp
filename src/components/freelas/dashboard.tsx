@@ -677,7 +677,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               )}
             </>
           )}
-          {view === "Profissionais" && (
+          {!admin && view === "Profissionais" && (
             <>
               <div className="search-field">
                 <Search />
@@ -765,7 +765,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               </div>
             </section>
           )}
-          {view === "Mensagens" && (
+          {!admin && view === "Mensagens" && (
             <section className="messages-panel">
               <aside>
                 <h2>Conversas</h2>
@@ -830,7 +830,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               </div>
             </section>
           )}
-          {["Meu perfil", "Configurações", "Documentos"].includes(view) && (
+          {!admin && ["Meu perfil", "Configurações", "Documentos"].includes(view) && (
             <section className="profile-editor">
               {view === "Documentos" ? (
                 <>
