@@ -82,6 +82,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
   const [published, setPublished] = useState(false);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<string[]>([]);
+  const [conversation, setConversation] = useState(role === "professional" ? "Instituto Horizonte" : "Mariana Santos");
   const [tab, setTab] = useState("Todas");
   const [notifications, setNotifications] = useState(false);
   const nav = admin
@@ -249,7 +250,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               )}
             </div>
             <Avatar
-              name={admin ? "Admin Freelas" : professional ? "Mariana Santos" : "Ana Costa"}
+              name={admin ? "Lílian" : professional ? "Mariana Santos" : "Juliana"}
               color={professional ? 1 : 0}
             />
           </div>
@@ -280,7 +281,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                     ? "Visão geral da plataforma"
                     : professional
                       ? "Olá, Mariana"
-                      : "Olá, Ana"
+                      : "Olá, Juliana"
                   : view}
               </h1>
               <p>
@@ -711,13 +712,13 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                             <strong>
                               {professional
                                 ? j.title
-                                : ["Mariana Santos", "Lucas Oliveira", "Camila Souza"][i]}
+                                : ["Mariana Santos", "Lucas Oliveira", "Camila Souza"][jobs.indexOf(j)]}
                             </strong>
                           </td>
                           <td>{professional ? j.org : j.title}</td>
                           <td>
                             <span className="status-pill">
-                              {tab === "Em análise" || i === 0 ? "Em análise" : "Enviada"}
+                              {jobs.indexOf(j) === 0 ? "Em análise" : "Enviada"}
                             </span>
                           </td>
                           <td>
@@ -736,12 +737,17 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
             <section className="messages-panel">
               <aside>
                 <h2>Conversas</h2>
-                {["Instituto Horizonte", "Mariana Santos"].map((n, i) => (
+                {(professional ? ["Instituto Horizonte", "Clínica Bem Viver"] : ["Mariana Santos", "Lucas Oliveira"]).map((n, i) => (
                   <Button
                     key={n}
                     variant="ghost"
                     className="conversation-item"
-                    onClick={() => setNotice(`Conversa demonstrativa com ${n}`)}
+                    onClick={() => {
+                      setConversation(n);
+                      setMessages([]);
+                      setMessage("");
+                    }}
+                    aria-pressed={conversation === n}
                   >
                     <Avatar name={n} color={i} />
                     <span>
@@ -753,14 +759,14 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               </aside>
               <div className="conversation-body">
                 <div className="conversation-heading">
-                  <Avatar name="Instituto Horizonte" />
+                  <Avatar name={conversation} />
                   <div>
-                    <strong>Instituto Horizonte</strong>
+                    <strong>{conversation}</strong>
                     <small>Conversa demonstrativa</small>
                   </div>
                 </div>
                 <div className="conversation-log">
-                  <p>Olá! Que bom conectar com você. Vamos conversar sobre a oportunidade?</p>
+                  <p>{professional ? "Olá! Podemos alinhar as atividades, o horário e o local desta oportunidade?" : "Olá, Juliana. Podemos revisar as atividades e o horário da oportunidade?"}</p>
                   {messages.map((m, i) => (
                     <p className={i % 2 === 0 ? "sent" : ""} key={i}>
                       {m}
