@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import teamImage from "@/assets/freelas-team.jpg";
+import empresasImage from "@/assets/freelas-empresas.jpg";
+import coopImage from "@/assets/freelas-coop.jpg";
 import { Avatar, CheckItem, PublicLayout, services, Steps, TrustBand } from "./shared";
 function InterfacePreview({ professional = false }: { professional?: boolean }) {
   return (
@@ -117,7 +119,7 @@ export function Landing() {
       <main>
         <section className="landing-hero container">
           <div className="hero-eyebrow">
-            <span className="live-dot" /> CONEXÕES LOCAIS. POSSIBILIDADES REAIS.
+            CONEXÕES LOCAIS. POSSIBILIDADES REAIS.
           </div>
           <h1>
             Talentos que conectam.
@@ -279,10 +281,10 @@ export function Landing() {
 }
 export function AudiencePage({ professional = false }: { professional?: boolean }) {
   return (
-    <PublicLayout theme={professional ? "professional" : "contractor"}>
+    <PublicLayout theme={professional ? "professional" : "contractor"} brandContext={professional ? "Coop" : "Empresas"}>
       <main>
         <section className="audience-hero">
-          <img src={teamImage} width={1200} height={1008} alt="Equipe de profissionais Freelas" />
+          <img src={professional ? coopImage : empresasImage} width={1536} height={1024} alt={professional ? "Profissionais de cozinha e atendimento prontos para trabalhar" : "Equipe alinhando necessidades de contratação"} />
           <div className="audience-hero-overlay" />
           <div className="container">
             <div className="audience-hero-copy">

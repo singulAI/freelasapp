@@ -12,9 +12,11 @@ import {
   ShieldCheck,
   Users,
   X,
+  Apple,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import logoAsset from "@/assets/freelas-logo.png.asset.json";
 export type Audience = "contractor" | "professional" | "admin";
 export const services = [
   "Limpeza e conservação",
@@ -25,25 +27,20 @@ export const services = [
   "Cozinheiras",
   "Segurança",
 ];
-export function Logo({ small = false }: { small?: boolean }) {
+export function Logo({ small = false, context }: { small?: boolean; context?: "Coop" | "Empresas" | "App" | "Admin" }) {
   return (
     <Link to="/" className={`brand ${small ? "brand-small" : ""}`} aria-label="Freelas, início">
-      <span className="brand-mark">
-        <Handshake size={24} />
-      </span>
-      <span>
-        Free<span className="text-success">las</span>
-        <span className="brand-dot">.</span>
-      </span>
+      <img className="official-logo" src={logoAsset.url} width={1920} height={623} alt="Freelas" />
+      {context && <span className="brand-context">{context}</span>}
     </Link>
   );
 }
-export function Header() {
+export function Header({ context }: { context?: "Coop" | "Empresas" | "App" | "Admin" }) {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Logo />
+        <Logo context={context} />
         <nav
           className={open ? "public-nav nav-open" : "public-nav"}
           aria-label="Navegação principal"
@@ -84,6 +81,20 @@ export function Header() {
     </header>
   );
 }
+export function DeveloperCredit() {
+  return <span className="developer-credit">Desenvolvido por - <a href="https://rrv.digital" target="_blank" rel="noopener noreferrer">rrv.digital</a></span>;
+}
+function StoreIndicators() {
+  return (
+    <div className="store-area">
+      <div className="store-heading"><strong>Freelas App</strong><span>Em breve</span></div>
+      <div className="store-indicators" aria-label="Aplicativo em breve para iOS e Android">
+        <div className="store-badge" aria-label="App Store, em breve"><Apple aria-hidden="true" /><div><small>Disponível em breve na</small><strong>App Store</strong></div></div>
+        <div className="store-badge" aria-label="Google Play, em breve"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 3v18l16-9L4 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/><path d="m4 3 11 12M4 21l11-12" stroke="currentColor" strokeWidth="1.5"/></svg><div><small>Disponível em breve no</small><strong>Google Play</strong></div></div>
+      </div>
+    </div>
+  );
+}
 export function Footer() {
   return (
     <footer className="site-footer">
@@ -105,11 +116,13 @@ export function Footer() {
           <strong>Freelas</strong>
           <span>Belo Horizonte e região metropolitana</span>
           <Link to="/admin">Área administrativa · Demo</Link>
+          <StoreIndicators />
         </div>
       </div>
       <div className="container footer-bottom">
         <span>© 2026 Freelas. Todos os direitos reservados.</span>
         <span>Protótipo demonstrativo · Sem operações reais</span>
+        <DeveloperCredit />
       </div>
     </footer>
   );
@@ -213,16 +226,15 @@ export function Chat() {
 export function PublicLayout({
   children,
   theme = "contractor",
+  brandContext,
 }: {
   children: React.ReactNode;
   theme?: Audience;
+  brandContext?: "Coop" | "Empresas" | "App" | "Admin";
 }) {
   return (
     <div className={`theme-${theme}`}>
-      <div className="prototype-strip">
-        Uma conexão que transforma. <span>Protótipo demonstrativo</span>
-      </div>
-      <Header />
+      <Header context={brandContext} />
       {children}
       <Footer />
       <Chat />
