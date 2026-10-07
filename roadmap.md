@@ -18,3 +18,8 @@
 - [ ] Refine discreet launcher, button and card motion with reduced-motion support
 - [ ] Apply strategic asset borders and layered shadows
 - [ ] Align demo identities and examples and verify responsive interactions
+
+## Final navigation audit
+- [ ] Correct sidebar and modal scrolling and accessible dismissal
+- [ ] Verify all nine pages and existing panel actions across screen sizes
+- [ ] Resolve overlap and spacing defects without changing information or sections
