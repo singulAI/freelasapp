@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import teamImage from "@/assets/freelas-team.jpg";
 import empresasImage from "@/assets/freelas-empresas.jpg";
 import coopImage from "@/assets/freelas-coop.jpg";
+import logoAsset from "@/assets/freelas-logo.png.asset.json";
 import { Avatar, CheckItem, PublicLayout, services, Steps, TrustBand } from "./shared";
 function InterfacePreview({ professional = false }: { professional?: boolean }) {
   return (
@@ -35,7 +36,7 @@ function InterfacePreview({ professional = false }: { professional?: boolean }) 
       </div>
       <div className="preview-content">
         <div className="preview-sidebar">
-          <span className="mini-brand">f.</span>
+          <img className="mini-brand" src={logoAsset.url} width={1920} height={623} alt="Freelas" />
           <Building2 />
           <BriefcaseBusiness />
           <Users />

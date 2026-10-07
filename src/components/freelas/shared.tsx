@@ -27,7 +27,7 @@ export const services = [
   "Cozinheiras",
   "Segurança",
 ];
-export function Logo({ small = false, context }: { small?: boolean; context?: "Coop" | "Empresas" | "App" | "Admin" }) {
+export function Logo({ small = false, context }: { small?: boolean; context?: "Coop" | "Empresas" | "App" | "Admin" | undefined }) {
   return (
     <Link to="/" className={`brand ${small ? "brand-small" : ""}`} aria-label="Freelas, início">
       <img className="official-logo" src={logoAsset.url} width={1920} height={623} alt="Freelas" />
@@ -35,15 +35,17 @@ export function Logo({ small = false, context }: { small?: boolean; context?: "C
     </Link>
   );
 }
-export function Header({ context }: { context?: "Coop" | "Empresas" | "App" | "Admin" }) {
+export function Header({ context }: { context?: "Coop" | "Empresas" | "App" | "Admin" | undefined }) {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
       <div className="container header-inner">
         <Logo context={context} />
         <nav
+          id="public-navigation"
           className={open ? "public-nav nav-open" : "public-nav"}
           aria-label="Navegação principal"
+          onClick={() => setOpen(false)}
         >
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "nav-active" }}>
             Início
@@ -69,6 +71,8 @@ export function Header({ context }: { context?: "Coop" | "Empresas" | "App" | "A
           </Button>
           <Button
             aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            aria-controls="public-navigation"
             variant="ghost"
             size="icon"
             className="mobile-menu"
