@@ -444,7 +444,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                       <table>
                         <thead>
                           <tr>
-                            <th>Organização / profissional</th>
+                            <th>Organização / cooperado</th>
                             <th>Atividade</th>
                             <th>Data</th>
                             <th>Status</th>
@@ -1212,7 +1212,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                 <div className="modal-profile">
                   <Avatar name={modal.replace("Perfil: ", "")} />
                   <h3>{modal.replace("Perfil: ", "")}</h3>
-                  <p>Profissional de serviços · Belo Horizonte</p>
+                  <p>Cooperado de serviços · Belo Horizonte</p>
                   <span className="rating">
                     <Star size={14} /> 4,9 · Avaliações demonstrativas
                   </span>
