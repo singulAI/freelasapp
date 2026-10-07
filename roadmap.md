@@ -7,8 +7,8 @@
 - [x] Verify navigation, interactions and small-screen layouts
 
 ## Controlled visual refinement
-- [ ] Preserve structure and apply official contextual branding and favicon
-- [ ] Add developer credits to all nine pages and illustrative store badges to public pages
-- [ ] Use distinct contextual images and remove the top strip and green hero dot
-- [ ] Refine spacing, controls and smartphone presentation without changing flows
-- [ ] Include safe demonstration names and verify all nine pages
+- [x] Preserve structure and apply official contextual branding and favicon
+- [x] Add developer credits to all nine pages and illustrative store badges to public pages
+- [x] Use distinct contextual images and remove the top strip and green hero dot
+- [x] Refine spacing, controls and smartphone presentation without changing flows
+- [x] Include safe demonstration names and verify all nine pages
