@@ -10,33 +10,142 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as CadastroContratanteRouteImport } from './routes/cadastro-contratante'
+import { Route as CadastroProfissionalRouteImport } from './routes/cadastro-profissional'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ParaContratantesRouteImport } from './routes/para-contratantes'
+import { Route as ParaProfissionaisRouteImport } from './routes/para-profissionais'
+import { Route as AppContratanteDashboardRouteImport } from './routes/app.contratante.dashboard'
+import { Route as AppProfissionalDashboardRouteImport } from './routes/app.profissional.dashboard'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CadastroContratanteRoute = CadastroContratanteRouteImport.update({
+  id: '/cadastro-contratante',
+  path: '/cadastro-contratante',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CadastroProfissionalRoute = CadastroProfissionalRouteImport.update({
+  id: '/cadastro-profissional',
+  path: '/cadastro-profissional',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParaContratantesRoute = ParaContratantesRouteImport.update({
+  id: '/para-contratantes',
+  path: '/para-contratantes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParaProfissionaisRoute = ParaProfissionaisRouteImport.update({
+  id: '/para-profissionais',
+  path: '/para-profissionais',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppContratanteDashboardRoute = AppContratanteDashboardRouteImport.update({
+  id: '/app/contratante/dashboard',
+  path: '/app/contratante/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppProfissionalDashboardRoute =
+  AppProfissionalDashboardRouteImport.update({
+    id: '/app/profissional/dashboard',
+    path: '/app/profissional/dashboard',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/cadastro-contratante': typeof CadastroContratanteRoute
+  '/cadastro-profissional': typeof CadastroProfissionalRoute
+  '/login': typeof LoginRoute
+  '/para-contratantes': typeof ParaContratantesRoute
+  '/para-profissionais': typeof ParaProfissionaisRoute
+  '/app/contratante/dashboard': typeof AppContratanteDashboardRoute
+  '/app/profissional/dashboard': typeof AppProfissionalDashboardRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/cadastro-contratante': typeof CadastroContratanteRoute
+  '/cadastro-profissional': typeof CadastroProfissionalRoute
+  '/login': typeof LoginRoute
+  '/para-contratantes': typeof ParaContratantesRoute
+  '/para-profissionais': typeof ParaProfissionaisRoute
+  '/app/contratante/dashboard': typeof AppContratanteDashboardRoute
+  '/app/profissional/dashboard': typeof AppProfissionalDashboardRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/cadastro-contratante': typeof CadastroContratanteRoute
+  '/cadastro-profissional': typeof CadastroProfissionalRoute
+  '/login': typeof LoginRoute
+  '/para-contratantes': typeof ParaContratantesRoute
+  '/para-profissionais': typeof ParaProfissionaisRoute
+  '/app/contratante/dashboard': typeof AppContratanteDashboardRoute
+  '/app/profissional/dashboard': typeof AppProfissionalDashboardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/cadastro-contratante'
+    | '/cadastro-profissional'
+    | '/login'
+    | '/para-contratantes'
+    | '/para-profissionais'
+    | '/app/contratante/dashboard'
+    | '/app/profissional/dashboard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/cadastro-contratante'
+    | '/cadastro-profissional'
+    | '/login'
+    | '/para-contratantes'
+    | '/para-profissionais'
+    | '/app/contratante/dashboard'
+    | '/app/profissional/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/cadastro-contratante'
+    | '/cadastro-profissional'
+    | '/login'
+    | '/para-contratantes'
+    | '/para-profissionais'
+    | '/app/contratante/dashboard'
+    | '/app/profissional/dashboard'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  CadastroContratanteRoute: typeof CadastroContratanteRoute
+  CadastroProfissionalRoute: typeof CadastroProfissionalRoute
+  LoginRoute: typeof LoginRoute
+  ParaContratantesRoute: typeof ParaContratantesRoute
+  ParaProfissionaisRoute: typeof ParaProfissionaisRoute
+  AppContratanteDashboardRoute: typeof AppContratanteDashboardRoute
+  AppProfissionalDashboardRoute: typeof AppProfissionalDashboardRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +157,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cadastro-contratante': {
+      id: '/cadastro-contratante'
+      path: '/cadastro-contratante'
+      fullPath: '/cadastro-contratante'
+      preLoaderRoute: typeof CadastroContratanteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cadastro-profissional': {
+      id: '/cadastro-profissional'
+      path: '/cadastro-profissional'
+      fullPath: '/cadastro-profissional'
+      preLoaderRoute: typeof CadastroProfissionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/para-contratantes': {
+      id: '/para-contratantes'
+      path: '/para-contratantes'
+      fullPath: '/para-contratantes'
+      preLoaderRoute: typeof ParaContratantesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/para-profissionais': {
+      id: '/para-profissionais'
+      path: '/para-profissionais'
+      fullPath: '/para-profissionais'
+      preLoaderRoute: typeof ParaProfissionaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/contratante/dashboard': {
+      id: '/app/contratante/dashboard'
+      path: '/app/contratante/dashboard'
+      fullPath: '/app/contratante/dashboard'
+      preLoaderRoute: typeof AppContratanteDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/profissional/dashboard': {
+      id: '/app/profissional/dashboard'
+      path: '/app/profissional/dashboard'
+      fullPath: '/app/profissional/dashboard'
+      preLoaderRoute: typeof AppProfissionalDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  CadastroContratanteRoute: CadastroContratanteRoute,
+  CadastroProfissionalRoute: CadastroProfissionalRoute,
+  LoginRoute: LoginRoute,
+  ParaContratantesRoute: ParaContratantesRoute,
+  ParaProfissionaisRoute: ParaProfissionaisRoute,
+  AppContratanteDashboardRoute: AppContratanteDashboardRoute,
+  AppProfissionalDashboardRoute: AppProfissionalDashboardRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
