@@ -25,16 +25,16 @@
 - [x] Resolve overlap and spacing defects without changing information or sections
 
 ## Reference-based visual finish
-- [ ] Preserve official logo unchanged; use the most coherent institutional finish
-- [ ] Refine existing frames, borders, continuous-line icons and asset depth without changing sections or functions
-- [ ] Apply discreet official branding to suitable uniforms; companies image brands only the collaborator
-- [ ] Review and reduce uniform applications for realistic scale and unchanged official logo fidelity
-- [ ] Update visible audience terminology to cooperado/cooperados while preserving route destinations
-- [ ] Verify all nine pages, photos and existing navigation across screen sizes
+- [x] Preserve official logo unchanged; use the most coherent institutional finish
+- [x] Refine existing frames, borders, continuous-line icons and asset depth without changing sections or functions
+- [x] Apply discreet official branding to suitable uniforms; companies image brands only the collaborator
+- [x] Review and reduce uniform applications for realistic scale and unchanged official logo fidelity
+- [x] Update visible audience terminology to cooperado/cooperados while preserving route destinations
+- [x] Verify all nine pages, photos and existing navigation across screen sizes
 
 ## Final controlled adjustment — October 7
-- [ ] Resolve current preview errors and complete existing visual finish without redesign
-- [ ] Verify Juliana for contractors, Lílian for administration and remove Ana from demonstrations
-- [ ] Preserve the seven approved services and inclusive audience copy
-- [ ] Keep all example data clearly demonstrative and preserve current logos, routes and flows
-- [ ] Verify nine pages and existing interactions, then stop for owner validation
+- [x] Resolve current preview errors and complete existing visual finish without redesign
+- [x] Verify Juliana for contractors, Lílian for administration and remove Ana from demonstrations
+- [x] Preserve the seven approved services and inclusive audience copy
+- [x] Keep all example data clearly demonstrative and preserve current logos, routes and flows
+- [x] Verify nine pages and existing interactions, then stop for owner validation
