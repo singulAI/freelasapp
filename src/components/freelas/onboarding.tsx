@@ -18,7 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import empresasRegistration from "@/assets/freelas-cadastro-empresas.jpg";
-import coopRegistration from "@/assets/freelas-cadastro-coop.jpg";
+import coopRegistration from "@/assets/freelas-cadastro-coop-refined.jpg";
 import {
   CheckItem,
   DemoTag,
@@ -81,7 +81,7 @@ export function Login() {
                   onClick={() => setRole(r)}
                 >
                   {[<Building2 key="b" />, <Users key="u" />, <LockKeyhole key="l" />][i]}
-                  {["Contratante", "Profissional", "Admin"][i]}
+                  {["Contratante", "Cooperado", "Admin"][i]}
                 </Button>
               ))}
             </div>
@@ -164,9 +164,9 @@ export function Registration({ professional = false }: { professional?: boolean 
       <main className="auth-background">
         <div className="registration-shell">
           <aside className="registration-story">
-            <img className="registration-photo" src={professional ? coopRegistration : empresasRegistration} width={1536} height={1024} alt={professional ? "Profissional de recepção em seu ambiente de trabalho" : "Empreendedora organizando sua próxima contratação"} />
+            <img className="registration-photo" src={professional ? coopRegistration : empresasRegistration} width={1536} height={1024} alt={professional ? "Cooperado de recepção em seu ambiente de trabalho" : "Empreendedora organizando sua próxima contratação"} />
             <span className="eyebrow">
-              {professional ? "PARA PROFISSIONAIS" : "PARA CONTRATANTES"}
+              {professional ? "PARA COOPERADOS" : "PARA CONTRATANTES"}
             </span>
             <h1>
               {professional ? (
@@ -186,7 +186,7 @@ export function Registration({ professional = false }: { professional?: boolean 
             <p>
               {professional
                 ? "Conte sua história e encontre novos caminhos para trabalhar."
-                : "Encontre os profissionais certos para fazer acontecer."}
+                : "Encontre os cooperados certos para fazer acontecer."}
             </p>
             <CheckItem>
               {professional ? "Mostre sua experiência" : "Contrate como empresa ou pessoa física"}
@@ -211,7 +211,7 @@ export function Registration({ professional = false }: { professional?: boolean 
             <div className="registration-title">
               <div>
                 <h2>
-                  {professional ? "Crie sua conta profissional" : "Crie sua conta como contratante"}
+                  {professional ? "Crie sua conta como cooperado" : "Crie sua conta como contratante"}
                 </h2>
                 <p>Vamos começar uma nova conexão.</p>
               </div>

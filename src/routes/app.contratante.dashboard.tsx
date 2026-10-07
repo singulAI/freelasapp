@@ -5,7 +5,7 @@ export const Route = createFileRoute("/app/contratante/dashboard")({
   head: () =>
     meta(
       "Painel do contratante",
-      "Demonstração de oportunidades, profissionais e candidaturas da Freelas.",
+      "Demonstração de oportunidades, cooperados e candidaturas da Freelas.",
     ),
   component: () => <Dashboard role="contractor" />,
 });

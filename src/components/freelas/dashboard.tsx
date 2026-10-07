@@ -142,7 +142,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
         ]
       : [
           [LayoutDashboard, "Visão geral"],
-          [Users, "Profissionais"],
+          [Users, "Cooperados"],
           [BriefcaseBusiness, "Oportunidades"],
           [FileText, "Candidaturas"],
           [MessageSquare, "Mensagens"],
@@ -173,7 +173,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                 {admin
                   ? "Administração"
                   : professional
-                    ? "Área do profissional"
+                    ? "Área do cooperado"
                     : "Área do contratante"}
               </strong>
               <small>
@@ -256,7 +256,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
             >
               <Menu />
             </Button>
-            <span>{admin ? "Administração" : professional ? "Profissional" : "Contratante"}</span>
+            <span>{admin ? "Administração" : professional ? "Cooperado" : "Contratante"}</span>
             <ChevronRight size={14} />
             <strong>{view}</strong>
           </div>
@@ -372,7 +372,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                           "2 novas nesta semana",
                         ],
                         [FileText, "Candidaturas recebidas", "24", "6 aguardando sua análise"],
-                        [Users, "Profissionais conectados", "16", "4 novas conexões"],
+                        [Users, "Cooperados conectados", "16", "4 novas conexões"],
                         [Star, "Avaliação da organização", "4,8", "Construindo boas relações"],
                       ]
                 ).map(([Icon, title, total, sub]) => {
@@ -507,9 +507,9 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                     </div>
                     <Button
                       variant="outline"
-                      onClick={() => changeView(professional ? "Oportunidades" : "Profissionais")}
+                      onClick={() => changeView(professional ? "Oportunidades" : "Cooperados")}
                     >
-                      {professional ? "Explorar oportunidades" : "Encontrar profissionais"}{" "}
+                      {professional ? "Explorar oportunidades" : "Encontrar cooperados"}{" "}
                       <ArrowRight />
                     </Button>
                   </section>
@@ -543,12 +543,12 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                     <section className="people-panel">
                       <div className="panel-heading">
                         <h2>
-                          {professional ? "Minhas candidaturas" : "Profissionais recomendados"}
+                          {professional ? "Minhas candidaturas" : "Cooperados recomendados"}
                         </h2>
                         <Button
                           variant="link"
                           onClick={() =>
-                            changeView(professional ? "Candidaturas" : "Profissionais")
+                            changeView(professional ? "Candidaturas" : "Cooperados")
                           }
                         >
                           Ver todos <ArrowRight />
@@ -677,12 +677,12 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               )}
             </>
           )}
-          {!admin && view === "Profissionais" && (
+          {!admin && view === "Cooperados" && (
             <>
               <div className="search-field">
                 <Search />
                 <Input
-                  placeholder="Buscar profissionais..."
+                  placeholder="Buscar cooperados..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -727,7 +727,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                 <table>
                   <thead>
                     <tr>
-                      <th>{professional ? "Oportunidade" : "Profissional"}</th>
+                      <th>{professional ? "Oportunidade" : "Cooperado"}</th>
                       <th>{professional ? "Organização" : "Oportunidade"}</th>
                       <th>Status</th>
                       <th />
@@ -905,7 +905,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                     {[
                       ["Início", "Apresentação e serviços", "05 out, 2026"],
                       ["Para contratantes", "Como funciona", "02 out, 2026"],
-                      ["Para profissionais", "Benefícios da cooperação", "28 set, 2026"],
+                      ["Para cooperados", "Benefícios da cooperação", "28 set, 2026"],
                       ["Cadastros", "Etapas de registro", "20 set, 2026"],
                     ].map(([page, section, date], i) => (
                       <tr key={page}>

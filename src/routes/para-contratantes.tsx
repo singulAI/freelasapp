@@ -5,7 +5,7 @@ export const Route = createFileRoute("/para-contratantes")({
   head: () =>
     meta(
       "Para contratantes",
-      "Conecte pessoas e organizações aos profissionais certos com a Freelas.",
+      "Conecte pessoas e organizações aos cooperados certos com a Freelas.",
     ),
   component: () => <AudiencePage />,
 });
