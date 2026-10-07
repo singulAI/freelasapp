@@ -622,7 +622,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               )}
             </>
           )}
-          {view === "Oportunidades" && (
+          {!admin && view === "Oportunidades" && (
             <>
               <div className="dashboard-filters">
                 <div className="search-field">
@@ -709,7 +709,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               </div>
             </>
           )}
-          {view === "Candidaturas" && (
+          {!admin && view === "Candidaturas" && (
             <section className="table-panel">
               <div className="table-tabs">
                 {["Todas", "Em análise", "Enviada"].map((t) => (
