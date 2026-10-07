@@ -2580,6 +2580,8 @@
 }
 .demo-modal {
   width: 500px;
+  min-width: 0;
+  width: min(500px, calc(100vw - 40px));
   max-width: 100%;
   max-height: calc(100dvh - 40px);
   overflow: auto;
@@ -2593,7 +2595,7 @@
 }
 .demo-modal > .panel-heading {
   position: sticky;
-  top: -1px;
+  top: -30px;
   background: var(--background);
   z-index: 1;
   padding-block: 8px;
@@ -3579,6 +3581,7 @@
   .demo-modal {
     padding: 22px;
   }
+  .demo-modal > .panel-heading { top: -22px; }
   .demo-modal > .panel-heading h2 {
     font-size: 17px;
   }

@@ -86,20 +86,21 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
   const [tab, setTab] = useState("Todas");
   const [notifications, setNotifications] = useState(false);
   const dialogRef = useRef<HTMLElement>(null);
+  const sidebarRef = useRef<HTMLElement>(null);
   useEffect(() => {
     if (!modal && !mobile) return;
     const previousOverflow = document.body.style.overflow;
     const previousFocus = document.activeElement;
     document.body.style.overflow = "hidden";
-    const dialog = dialogRef.current;
-    if (modal) dialog?.focus();
+    const dialog = modal ? dialogRef.current : sidebarRef.current;
+    dialog?.focus();
     function handleKey(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setModal("");
         setMobile(false);
         return;
       }
-      if (event.key !== "Tab" || !dialog || !modal) return;
+      if (event.key !== "Tab" || !dialog) return;
       const controls = Array.from(dialog.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], input, select, textarea, [tabindex="0"]'));
       const first = controls[0];
       const last = controls[controls.length - 1];
@@ -164,7 +165,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
   );
   return (
     <div className={`dashboard-layout theme-${role} ${collapsed ? "sidebar-collapsed" : ""}`}>
-      <aside className={`dashboard-sidebar ${mobile ? "sidebar-mobile-open" : ""}`}>
+      <aside ref={sidebarRef} tabIndex={mobile ? -1 : undefined} className={`dashboard-sidebar ${mobile ? "sidebar-mobile-open" : ""}`}>
         <Logo small context={admin ? "Admin" : professional ? "Coop" : "Empresas"} />
         <div className="workspace-select">
           <span className="workspace-icon">
