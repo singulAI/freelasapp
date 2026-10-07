@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   Building2,
@@ -140,6 +140,16 @@ export function DemoTag() {
 }
 export function Chat() {
   const [open, setOpen] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
+  useEffect(() => {
+    const footer = document.querySelector(".footer-bottom");
+    if (!footer) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setFooterVisible(entry?.isIntersecting ?? false);
+    });
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
   const [messages, setMessages] = useState<string[]>([]);
   const [text, setText] = useState("");
   const replies: Record<string, string> = {
@@ -162,7 +172,7 @@ export function Chat() {
     setText("");
   }
   return (
-    <div className="chat-float">
+    <div className={`chat-float ${footerVisible ? "chat-clear-footer" : ""} ${open ? "chat-is-open" : ""}`}>
       {open && (
         <section className="chat-panel" aria-label="Atendimento demonstrativo">
           <div className="chat-head">
@@ -220,6 +230,7 @@ export function Chat() {
         className="chat-trigger"
         onClick={() => setOpen(!open)}
         aria-label={open ? "Fechar atendimento" : "Abrir atendimento"}
+        aria-expanded={open}
       >
         {open ? <X /> : <MessageCircle />}
         <span>Vamos conversar?</span>
