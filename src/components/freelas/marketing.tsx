@@ -46,9 +46,9 @@ function InterfacePreview({ professional = false }: { professional?: boolean }) 
           <div className="preview-greeting">
             <div>
               <span>{professional ? "SEU PRÓXIMO PASSO" : "BOAS CONEXÕES COMEÇAM AQUI"}</span>
-              <h3>{professional ? "Seu talento tem lugar." : "Olá, Ana. Vamos conectar?"}</h3>
+              <h3>{professional ? "Seu talento tem lugar." : "Olá, Juliana. Vamos conectar?"}</h3>
             </div>
-            <span className="preview-profile">{professional ? "MS" : "AC"}</span>
+            <span className="preview-profile">{professional ? "MS" : "J"}</span>
           </div>
           <div className="mini-stats">
             <div>

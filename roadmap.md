@@ -12,3 +12,9 @@
 - [x] Use distinct contextual images and remove the top strip and green hero dot
 - [x] Refine spacing, controls and smartphone presentation without changing flows
 - [x] Include safe demonstration names and verify all nine pages
+
+## Motion, depth and demo consistency
+- [ ] Keep the floating chat clear of desktop credits
+- [ ] Refine discreet launcher, button and card motion with reduced-motion support
+- [ ] Apply strategic asset borders and layered shadows
+- [ ] Align demo identities and examples and verify responsive interactions

@@ -49,6 +49,11 @@
   --ink-muted: oklch(0.8 0.015 255);
   --shadow-soft: 0 8px 28px oklch(0.25 0.05 258 / 0.055);
   --shadow-raised: 0 20px 55px oklch(0.25 0.05 258 / 0.12);
+  --shadow-depth: 0 1px 2px oklch(0.25 0.04 258 / 0.04), 0 6px 18px oklch(0.25 0.04 258 / 0.045);
+  --shadow-lift: 0 2px 4px oklch(0.25 0.04 258 / 0.04), 0 12px 30px oklch(0.25 0.04 258 / 0.09);
+  --shadow-asset: 0 2px 6px oklch(0.25 0.04 258 / 0.05), 0 18px 42px oklch(0.25 0.04 258 / 0.11);
+  --border-emphasis: color-mix(in oklab, var(--primary) 26%, var(--border));
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --hero-shade: linear-gradient(
     90deg,
     oklch(1 0 0) 0%,
@@ -3783,6 +3788,28 @@
   .footer-top { grid-template-columns: minmax(0, 1fr); }
   .role-select > button { font-size: 10px; flex-direction: column; gap: 3px; height: 58px; }
 }
+[data-ui="button"] { transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 240ms ease, transform 240ms var(--motion-ease); }
+[data-ui="button"]:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+[data-ui="button"][data-variant="default"] { box-shadow: var(--shadow-depth); }
+[data-ui="button"]:active:not(:disabled) { transform: translateY(1px); }
+.service-card, .job-card, .professional-card, .stat-card { box-shadow: var(--shadow-depth); transition: box-shadow 280ms ease, border-color 280ms ease, transform 280ms var(--motion-ease); }
+.preview-window, .registration-photo, .institutional-band img { box-shadow: var(--shadow-asset); border: 1px solid var(--border); }
+.chat-float { transition: bottom 420ms var(--motion-ease); }
+.chat-trigger { position: relative; min-height: 48px; box-shadow: var(--shadow-lift); animation: chat-arrive 700ms var(--motion-ease) both; }
+.chat-trigger > svg { transform-origin: 50% 75%; animation: chat-greet 1400ms var(--motion-ease) 900ms 1; }
+.chat-is-open .chat-trigger > svg { animation: none; }
+.chat-panel { transform-origin: bottom right; animation: chat-arrive 320ms var(--motion-ease) both; max-height: calc(100dvh - 150px); display: flex; flex-direction: column; }
+.chat-head, .chat-input { flex-shrink: 0; }
+.chat-body { min-height: 0; }
+@keyframes chat-arrive { from { opacity: 0; transform: translateY(10px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes chat-greet { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-9deg); } 50% { transform: rotate(6deg); } 75% { transform: rotate(-3deg); } }
+@media (min-width: 768px) { .chat-clear-footer { bottom: 112px; } .chat-clear-footer .chat-panel { max-height: calc(100dvh - 190px); } }
+@media (hover: hover) and (pointer: fine) {
+  [data-ui="button"][data-variant="default"]:hover { box-shadow: var(--shadow-lift); transform: translateY(-1px); }
+  .service-card:hover, .job-card:hover, .professional-card:hover { box-shadow: var(--shadow-lift); border-color: var(--border-emphasis); transform: translateY(-2px); }
+  .stat-card:hover { box-shadow: var(--shadow-lift); }
+  .chat-trigger:hover > svg { transform: rotate(-6deg); transition: transform 280ms var(--motion-ease); }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *:before,
@@ -3791,4 +3818,5 @@
     transition: none !important;
     scroll-behavior: auto !important;
   }
+  [data-ui="button"], .service-card, .job-card, .professional-card, .chat-trigger > svg { transform: none !important; }
 }
