@@ -17,9 +17,9 @@ import {
   BriefcaseBusiness,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import teamImage from "@/assets/freelas-team.jpg";
-import empresasImage from "@/assets/freelas-empresas.jpg";
-import coopImage from "@/assets/freelas-coop.jpg";
+import teamImage from "@/assets/freelas-team-refined.jpg";
+import empresasImage from "@/assets/freelas-empresas-refined.jpg";
+import coopImage from "@/assets/freelas-coop-refined.jpg";
 import logoAsset from "@/assets/freelas-logo.png.asset.json";
 import { Avatar, CheckItem, PublicLayout, services, Steps, TrustBand } from "./shared";
 function InterfacePreview({ professional = false }: { professional?: boolean }) {
@@ -31,7 +31,7 @@ function InterfacePreview({ professional = false }: { professional?: boolean }) 
           <i />
           <i />
         </div>
-        <span>freelas / {professional ? "profissional" : "contratante"}</span>
+        <span>freelas / {professional ? "cooperado" : "contratante"}</span>
         <span className="preview-demo">DEMO</span>
       </div>
       <div className="preview-content">
@@ -64,7 +64,7 @@ function InterfacePreview({ professional = false }: { professional?: boolean }) 
               </strong>
             </div>
             <div>
-              <span>{professional ? "Conexões" : "Profissionais"}</span>
+              <span>{professional ? "Conexões" : "Cooperados"}</span>
               <strong>
                 {professional ? "05" : "16"} <small>↗</small>
               </strong>
@@ -72,7 +72,7 @@ function InterfacePreview({ professional = false }: { professional?: boolean }) 
           </div>
           <div className="preview-list-title">
             <strong>
-              {professional ? "Oportunidades para você" : "Profissionais em destaque"}
+              {professional ? "Oportunidades para você" : "Cooperados em destaque"}
             </strong>
             <span>
               Ver todos <ArrowRight size={12} />
@@ -213,7 +213,7 @@ export function Landing() {
             src={teamImage}
             width={1200}
             height={1008}
-            alt="Profissionais de recepção, alimentação e conservação"
+            alt="Cooperados de recepção, alimentação e conservação"
             loading="lazy"
           />
           <div className="institutional-shade" />
@@ -285,7 +285,7 @@ export function AudiencePage({ professional = false }: { professional?: boolean 
     <PublicLayout theme={professional ? "professional" : "contractor"} brandContext={professional ? "Coop" : "Empresas"}>
       <main>
         <section className="audience-hero">
-          <img src={professional ? coopImage : empresasImage} width={1536} height={1024} alt={professional ? "Profissionais de cozinha e atendimento prontos para trabalhar" : "Equipe alinhando necessidades de contratação"} />
+          <img src={professional ? coopImage : empresasImage} width={1536} height={1024} alt={professional ? "Cooperados de cozinha e atendimento prontos para trabalhar" : "Equipe alinhando necessidades de contratação"} />
           <div className="audience-hero-overlay" />
           <div className="container">
             <div className="audience-hero-copy">
@@ -315,7 +315,7 @@ export function AudiencePage({ professional = false }: { professional?: boolean 
               <p>
                 {professional
                   ? "Encontre oportunidades perto de você, mostre sua experiência e faça parte de uma rede que valoriza o seu trabalho."
-                  : "Conecte sua empresa ou organização a profissionais em Belo Horizonte e região metropolitana."}
+                  : "Conecte sua empresa ou organização a cooperados em Belo Horizonte e região metropolitana."}
               </p>
               <Button size="lg" asChild>
                 <Link to={professional ? "/cadastro-profissional" : "/cadastro-contratante"}>
@@ -367,7 +367,7 @@ export function AudiencePage({ professional = false }: { professional?: boolean 
                   ],
                   [
                     Users,
-                    "Profissionais de diferentes áreas",
+                    "Cooperados de diferentes áreas",
                     "Conheça talentos para as necessidades do seu dia a dia.",
                   ],
                   [
@@ -391,7 +391,7 @@ export function AudiencePage({ professional = false }: { professional?: boolean 
         <section className="section section-soft">
           <div className="container">
             <span className="eyebrow">UM CAMINHO SEM COMPLICAÇÃO</span>
-            <h2>{professional ? "Como começar a trabalhar" : "Como encontrar um profissional"}</h2>
+            <h2>{professional ? "Como começar a trabalhar" : "Como encontrar um cooperado"}</h2>
             <Steps professional={professional} />
           </div>
         </section>
@@ -407,7 +407,7 @@ export function AudiencePage({ professional = false }: { professional?: boolean 
             <CheckItem>
               {professional
                 ? "Oportunidades de diferentes áreas"
-                : "Perfis e experiências dos profissionais"}
+                : "Perfis e experiências dos cooperados"}
             </CheckItem>
             <CheckItem>Candidaturas organizadas</CheckItem>
             <CheckItem>Conversas em um só lugar</CheckItem>

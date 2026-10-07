@@ -54,7 +54,7 @@ export function Header({ context }: { context?: "Coop" | "Empresas" | "App" | "A
             Para contratantes
           </Link>
           <Link to="/para-profissionais" activeProps={{ className: "nav-active" }}>
-            Para profissionais
+            Para cooperados
           </Link>
           <span className="nav-mobile">
             <Link to="/login">Entrar</Link>
@@ -157,7 +157,7 @@ export function Chat() {
     "Solicitar orçamento":
       "Conte o que você precisa. Nesta demonstração, seu pedido não será enviado. Você pode conhecer a área do contratante.",
     "Quero ser cooperado":
-      "Que bom ter você por aqui! Acesse “Quero trabalhar” e conheça o cadastro de profissionais.",
+      "Que bom ter você por aqui! Acesse “Quero trabalhar” e conheça o cadastro de cooperados.",
     "Falar com atendimento":
       "Olá! Este atendimento é demonstrativo. Nenhuma mensagem é enviada a uma equipe real.",
   };
@@ -267,7 +267,7 @@ export function Steps({ professional = false }: { professional?: boolean }) {
     : [
         ["Cadastre-se", "Crie sua conta como pessoa física ou empresa."],
         ["Publique sua necessidade", "Conte o que precisa, onde e quando."],
-        ["Encontre a pessoa certa", "Conheça os perfis e converse com profissionais."],
+        ["Encontre a pessoa certa", "Conheça os perfis e converse com cooperados."],
         ["Faça acontecer", "Combine os detalhes e comece essa parceria."],
       ];
   return (

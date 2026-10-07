@@ -4,7 +4,7 @@ import { meta } from "@/components/freelas/shared";
 export const Route = createFileRoute("/para-profissionais")({
   head: () =>
     meta(
-      "Para profissionais",
+      "Para cooperados",
       "Mostre seu talento e encontre novas oportunidades de trabalho com a Freelas.",
     ),
   component: () => <AudiencePage professional />,
