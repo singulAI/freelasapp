@@ -150,10 +150,6 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
         ];
   function changeView(name: string) {
     setMobile(false);
-    if (admin && name !== "Visão geral") {
-      setNotice("Esta área faz parte da próxima etapa de validação.");
-      return;
-    }
     setView(name);
     setMobile(false);
     setQuery("");
