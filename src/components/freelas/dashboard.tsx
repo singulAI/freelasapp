@@ -150,10 +150,6 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
         ];
   function changeView(name: string) {
     setMobile(false);
-    if (admin && name !== "Visão geral") {
-      setNotice("Esta área faz parte da próxima etapa de validação.");
-      return;
-    }
     setView(name);
     setMobile(false);
     setQuery("");
@@ -626,7 +622,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               )}
             </>
           )}
-          {view === "Oportunidades" && (
+          {!admin && view === "Oportunidades" && (
             <>
               <div className="dashboard-filters">
                 <div className="search-field">
@@ -681,7 +677,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               )}
             </>
           )}
-          {view === "Profissionais" && (
+          {!admin && view === "Profissionais" && (
             <>
               <div className="search-field">
                 <Search />
@@ -713,7 +709,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               </div>
             </>
           )}
-          {view === "Candidaturas" && (
+          {!admin && view === "Candidaturas" && (
             <section className="table-panel">
               <div className="table-tabs">
                 {["Todas", "Em análise", "Enviada"].map((t) => (
@@ -769,7 +765,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               </div>
             </section>
           )}
-          {view === "Mensagens" && (
+          {!admin && view === "Mensagens" && (
             <section className="messages-panel">
               <aside>
                 <h2>Conversas</h2>
@@ -834,7 +830,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
               </div>
             </section>
           )}
-          {["Meu perfil", "Configurações", "Documentos"].includes(view) && (
+          {!admin && ["Meu perfil", "Configurações", "Documentos"].includes(view) && (
             <section className="profile-editor">
               {view === "Documentos" ? (
                 <>
@@ -887,6 +883,263 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                   </form>
                 </>
               )}
+            </section>
+          )}
+          {admin && view === "Conteúdo" && (
+            <section className="table-panel">
+              <div className="panel-heading">
+                <h2>Conteúdo das páginas públicas</h2>
+                <DemoTag />
+              </div>
+              <div className="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Página</th>
+                      <th>Seção</th>
+                      <th>Atualização</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["Início", "Apresentação e serviços", "05 out, 2026"],
+                      ["Para contratantes", "Como funciona", "02 out, 2026"],
+                      ["Para profissionais", "Benefícios da cooperação", "28 set, 2026"],
+                      ["Cadastros", "Etapas de registro", "20 set, 2026"],
+                    ].map(([page, section, date], i) => (
+                      <tr key={page}>
+                        <td><strong>{page}</strong></td>
+                        <td>{section}</td>
+                        <td>{date}</td>
+                        <td><span className="status-pill">{i === 3 ? "Em revisão" : "Publicado"}</span></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="panel-note">Edições de conteúdo são ilustrativas nesta demonstração.</p>
+            </section>
+          )}
+          {admin && view === "Mídia" && (
+            <section className="table-panel">
+              <div className="panel-heading">
+                <h2>Biblioteca de mídia</h2>
+                <DemoTag />
+              </div>
+              <div className="professional-grid">
+                {[
+                  "Fachada da sede",
+                  "Equipe em treinamento",
+                  "Evento comunitário",
+                  "Materiais institucionais",
+                ].map((m, i) => (
+                  <article className="professional-card" key={m}>
+                    <span className={`job-org-icon org-${i}`}>
+                      <Image />
+                    </span>
+                    <h2>{m}</h2>
+                    <p>Imagem ilustrativa · Uso interno</p>
+                    <span className="status-pill">Aprovada</span>
+                  </article>
+                ))}
+              </div>
+              <p className="panel-note">Nenhum arquivo real é enviado ou armazenado nesta demonstração.</p>
+            </section>
+          )}
+          {admin && view === "Contratantes" && (
+            <section className="table-panel">
+              <div className="panel-heading">
+                <h2>Contratantes cadastrados</h2>
+                <DemoTag />
+              </div>
+              <div className="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Organização</th>
+                      <th>Área de interesse</th>
+                      <th>Cidade</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["Instituto Horizonte", "Limpeza e conservação", "Belo Horizonte"],
+                      ["Clínica Bem Viver", "Portaria e recepção", "Contagem"],
+                      ["Associação Nova Vida", "Garçons", "Contagem"],
+                      ["Espaço Sabor Mineiro", "Bares e restaurantes", "Betim"],
+                    ].map(([org, area, city], i) => (
+                      <tr key={org}>
+                        <td>
+                          <div className="table-name">
+                            <Avatar name={org} color={i} />
+                            <strong>{org}</strong>
+                          </div>
+                        </td>
+                        <td>{area}</td>
+                        <td>{city}</td>
+                        <td><span className="status-pill">{i === 3 ? "Em análise" : "Ativo"}</span></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+          {admin && view === "Cooperados" && (
+            <section className="table-panel">
+              <div className="panel-heading">
+                <h2>Cooperados da rede</h2>
+                <DemoTag />
+              </div>
+              <div className="professional-grid">
+                {["Mariana Santos", "Lucas Oliveira", "Camila Souza", "Pedro Lima"].map((n, i) => (
+                  <article className="professional-card" key={n}>
+                    <Avatar name={n} color={i} />
+                    <h2>{n}</h2>
+                    <p>{services[i]}</p>
+                    <span className="rating">
+                      <Star size={14} /> 4,9
+                    </span>
+                    <span className="status-pill">{i === 3 ? "Em análise" : "Ativo"}</span>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+          {admin && view === "Oportunidades" && (
+            <section className="table-panel">
+              <div className="panel-heading">
+                <h2>Oportunidades na plataforma</h2>
+                <DemoTag />
+              </div>
+              <div className="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Oportunidade</th>
+                      <th>Organização</th>
+                      <th>Data</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {jobs.map((j, i) => (
+                      <tr key={j.title}>
+                        <td><strong>{j.title}</strong></td>
+                        <td>{j.org}</td>
+                        <td>{j.date}</td>
+                        <td><span className="status-pill">{i === jobs.length - 1 ? "Em análise" : "Aberta"}</span></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+          {admin && view === "Atendimento" && (
+            <section className="table-panel">
+              <div className="panel-heading">
+                <h2>Solicitações de atendimento</h2>
+                <DemoTag />
+              </div>
+              <div className="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Contato</th>
+                      <th>Assunto</th>
+                      <th>Recebido em</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["Instituto Horizonte", "Dúvida sobre oportunidade", "07 out, 2026"],
+                      ["Mariana Santos", "Atualização de perfil", "06 out, 2026"],
+                      ["Clínica Bem Viver", "Nova parceria", "05 out, 2026"],
+                    ].map(([name, subject, date], i) => (
+                      <tr key={name}>
+                        <td>
+                          <div className="table-name">
+                            <Avatar name={name} color={i} />
+                            <strong>{name}</strong>
+                          </div>
+                        </td>
+                        <td>{subject}</td>
+                        <td>{date}</td>
+                        <td><span className="status-pill">{i === 0 ? "Em aberto" : "Respondido"}</span></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="panel-note">Atendimento ilustrativo. Nenhuma mensagem real é trocada.</p>
+            </section>
+          )}
+          {admin && view === "Inteligência Artificial" && (
+            <section className="profile-editor">
+              <Sparkles size={40} />
+              <h2>Inteligência artificial Freelas</h2>
+              <p>
+                Recursos inteligentes para sugerir conexões entre cooperados e oportunidades.
+                Nesta demonstração, as sugestões são ilustrativas.
+              </p>
+              <div className="stat-grid">
+                {[
+                  [Sparkles, "Sugestões geradas", "36", "Nesta semana"],
+                  [TrendingUp, "Conexões sugeridas", "12", "Aguardando análise"],
+                ].map(([Icon, title, total, sub]) => {
+                  const I = Icon as typeof Sparkles;
+                  return (
+                    <div className="stat-card" key={String(title)}>
+                      <div>
+                        <span>{String(title)}</span>
+                        <I />
+                      </div>
+                      <strong>{String(total)}</strong>
+                      <small>
+                        <ArrowUpRight size={13} />
+                        {String(sub)}
+                      </small>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+          {admin && view === "Configurações" && (
+            <section className="profile-editor">
+              <div className="profile-heading">
+                <Avatar name="Lílian" />
+                <div>
+                  <h2>Administração Freelas</h2>
+                  <span>Configurações demonstrativas</span>
+                </div>
+              </div>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setNotice("Alterações demonstrativas concluídas. Os dados não foram armazenados.");
+                }}
+              >
+                <label className="form-field">
+                  <span>Nome da organização</span>
+                  <Input defaultValue="Freelas" />
+                </label>
+                <label className="form-field">
+                  <span>Região de atuação</span>
+                  <Input defaultValue="Belo Horizonte e região metropolitana" />
+                </label>
+                <label className="form-field">
+                  <span>E-mail institucional</span>
+                  <Input placeholder="contato@freelas" />
+                </label>
+                <Button>
+                  Salvar alterações <Check />
+                </Button>
+              </form>
             </section>
           )}
           <div className="dashboard-footnote">

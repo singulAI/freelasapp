@@ -3839,3 +3839,8 @@
   }
   [data-ui="button"], .service-card, .job-card, .professional-card, .chat-trigger > svg { transform: none !important; }
 }
+.panel-note {
+  margin: 14px 0 0;
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
+}
