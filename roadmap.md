@@ -28,5 +28,6 @@
 - [ ] Preserve official logo unchanged; use the most coherent institutional finish
 - [ ] Refine existing frames, borders, continuous-line icons and asset depth without changing sections or functions
 - [ ] Apply discreet official branding to suitable uniforms; companies image brands only the collaborator
+- [ ] Review and reduce uniform applications for realistic scale and unchanged official logo fidelity
 - [ ] Update visible audience terminology to cooperado/cooperados while preserving route destinations
 - [ ] Verify all nine pages, photos and existing navigation across screen sizes
