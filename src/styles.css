@@ -3687,6 +3687,99 @@
     display: none;
   }
 }
+/* Controlled visual refinement; existing page structure and flows stay intact. */
+.theme-admin { --primary: var(--ink); --accent: var(--secondary); }
+.site-header { position: relative; }
+.brand .official-logo { display: block; width: 164px; height: auto; aspect-ratio: 1920 / 623; object-fit: contain; }
+.brand:has(.brand-context) { flex-direction: column; align-items: flex-start; gap: 1px; }
+.brand-context { font-family: var(--font-sans); font-size: 10px; font-weight: 600; line-height: 1.3; color: var(--primary); padding-left: 52px; }
+.brand-small .official-logo { width: 148px; }
+.brand-small .brand-context { padding-left: 47px; }
+.developer-credit { font-size: 12px; line-height: 1.8; color: var(--muted-foreground); }
+.developer-credit a { color: var(--foreground); font-weight: 600; text-underline-offset: 4px; }
+.developer-credit a:hover { text-decoration: underline; color: var(--primary); }
+.dashboard-developer-credit { padding: 12px 0 8px; text-align: center; }
+.store-area { width: 100%; margin-top: 10px; }
+.store-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.store-heading > span { color: var(--muted-foreground); font-size: 11px; }
+.store-indicators { display: flex; flex-wrap: wrap; gap: 8px; }
+.store-badge { display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 8px 12px; border-radius: 6px; background: var(--ink); color: var(--ink-on); }
+.store-badge > svg { width: 25px; height: 28px; flex-shrink: 0; }
+.store-badge > div { display: flex; flex-direction: column; }
+.store-badge small { font-size: 9px; line-height: 1.5; }
+.store-badge strong { font-size: 15px; color: var(--ink-on); margin: 0; line-height: 1.3; }
+.registration-photo { display: block; width: 100%; aspect-ratio: 3 / 2; height: auto; object-fit: cover; border-radius: 8px; margin-bottom: 28px; }
+.hero-actions > a, .audience-hero a { height: 50px; }
+.footer-bottom { flex-wrap: wrap; }
+.audience-hero > img { width: 100%; }
+.audience-hero-overlay { background: var(--photo-shade); }
+.audience-hero-copy, .audience-hero-copy .hero-eyebrow, .audience-hero-copy h1 span, .audience-hero-copy .hero-caption { color: var(--ink-on); }
+.header-inner > *, .dashboard-header > *, .registration-title > *, .panel-heading > *, .dashboard-page-heading > * { min-width: 0; }
+.header-actions, .dashboard-header-right { flex-shrink: 0; }
+.footer-bottom > * { min-width: 0; }
+.sidebar-collapsed .brand .official-logo { width: 48px; }
+.sidebar-collapsed .brand-context { display: none; }
+.theme-admin .notification-dot { background: var(--warning); }
+@media (max-width: 900px) {
+  .public-nav a { display: flex; align-items: center; min-height: 44px; width: 100%; }
+  .public-nav.nav-open { top: 100%; gap: 5px; padding: 16px 24px; }
+}
+@media (max-width: 767px) {
+  .brand .official-logo { width: 128px; }
+  .brand-context { font-size: 9px; padding-left: 41px; }
+  .header-actions > a, .mobile-menu { min-height: 44px; }
+  .mobile-menu { width: 44px; }
+  .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-actions > a { padding-inline: 10px; min-width: 0; font-size: 12px; }
+  .hero-description, .section-heading > p, .final-cta p, .benefit-item p, .auth-story > p, .registration-story > p { font-size: 14px; line-height: 1.75; }
+  .how-step h3, .service-card h3 { font-size: 13px; }
+  .how-step p, .trust-item p { font-size: 12px; }
+  .trust-item strong { font-size: 13px; }
+  .audience-hero { height: 600px; }
+  .audience-hero > img { object-position: 62% center; }
+  .audience-hero-overlay { background: var(--photo-shade); }
+  .audience-hero h1 { font-size: 32px; line-height: 1.3; }
+  .audience-hero p { font-size: 14px; max-width: 290px; }
+  .hero-caption { font-size: 11px; }
+  .registration-photo { aspect-ratio: 16 / 7; margin-bottom: 20px; object-position: center 40%; }
+  .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .form-field > span { font-size: 13px; }
+  .form-field input, .form-field select, .form-field textarea, .chat-input input { font-size: 16px; min-height: 48px; }
+  .role-select > button { height: 48px; font-size: 11px; white-space: normal; min-width: 0; }
+  .form-remember { gap: 12px; flex-wrap: wrap; }
+  .form-remember button { min-height: 44px; }
+  .form-navigation > button, .form-navigation > a { min-height: 48px; font-size: 12px; }
+  .form-stepper small { font-size: 9px; }
+  .account-option > span { font-size: 11px; white-space: normal; }
+  .account-option strong { font-size: 13px; }
+  .footer-top > div, .footer-top strong { font-size: 12px; }
+  .footer-bottom { font-size: 11px; gap: 12px; }
+  .store-indicators { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .store-badge { width: max-content; max-width: 100%; }
+  .chat-trigger { min-height: 48px; width: 48px; }
+  .dashboard-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+  .dashboard-breadcrumb { min-width: 0; }
+  .dashboard-breadcrumb strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .dashboard-page-heading { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .dashboard-page-heading > button { justify-self: start; margin-top: 0; min-height: 44px; font-size: 12px; }
+  .dashboard-page-heading p { font-size: 13px; max-width: none; }
+  .dashboard-welcome-band > button, .job-card-footer > button, .person-row > button, .panel-heading > button { min-height: 44px; font-size: 11px; }
+  .dashboard-welcome-band p, .job-org, .job-location, .job-schedule { font-size: 12px; }
+  .dashboard-footnote { font-size: 10px; line-height: 1.7; }
+  .dashboard-sidebar .brand .official-logo { width: 148px; }
+  .dashboard-sidebar .sidebar-item { height: 46px; font-size: 12px; }
+  .collapse-button { display: none; }
+  .professional-grid { grid-template-columns: minmax(0, 1fr); }
+  .professional-card h2 { font-size: 16px; }
+  .professional-card p { font-size: 12px; }
+}
+@media (max-width: 359px) {
+  .brand .official-logo { width: 110px; }
+  .brand-context { padding-left: 35px; }
+  .hero-actions { grid-template-columns: minmax(0, 1fr); }
+  .footer-top { grid-template-columns: minmax(0, 1fr); }
+  .role-select > button { font-size: 10px; flex-direction: column; gap: 3px; height: 58px; }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *:before,
