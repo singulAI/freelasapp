@@ -14,3 +14,6 @@
 - Keep the nine initial pages as explicit TanStack leaf routes, with shared marketing, onboarding and dashboard modules; this preserves consistent presentation without expanding the validated scope.
 - Dashboard secondary views use local state within the dashboard route; expanded standalone modules wait for owner validation.
 - Define audience colors and all visual roles as semantic CSS tokens; contextual themes keep shared controls consistent.
+- Render developer attribution through one shared credit component in public footers and dashboard endings; every initial page must remain covered.
+- Keep app-store indicators non-interactive until real app URLs are supplied; the prototype must not imply completed downloads.
+- Use contextual brand labels with the unchanged official logo asset; only contextual photos vary by page.

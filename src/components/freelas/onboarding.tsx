@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import empresasRegistration from "@/assets/freelas-cadastro-empresas.jpg";
+import coopRegistration from "@/assets/freelas-cadastro-coop.jpg";
 import {
   CheckItem,
   DemoTag,
@@ -46,7 +48,7 @@ export function Login() {
   const [show, setShow] = useState(false);
   const [reset, setReset] = useState(false);
   return (
-    <PublicLayout theme={role}>
+    <PublicLayout theme={role} brandContext="App">
       <main className="auth-background">
         <div className="login-shell">
           <div className="auth-story">
@@ -158,11 +160,11 @@ export function Registration({ professional = false }: { professional?: boolean 
     ? ["Dados pessoais", "Experiência", "Verificação", "Conclusão"]
     : ["Tipo de conta", "Dados", "Verificação", "Conclusão"];
   return (
-    <PublicLayout theme={professional ? "professional" : "contractor"}>
+    <PublicLayout theme={professional ? "professional" : "contractor"} brandContext={professional ? "Coop" : "Empresas"}>
       <main className="auth-background">
         <div className="registration-shell">
           <aside className="registration-story">
-            <span className="story-symbol">{professional ? <UserRound /> : <Building2 />}</span>
+            <img className="registration-photo" src={professional ? coopRegistration : empresasRegistration} width={1536} height={1024} alt={professional ? "Profissional de recepção em seu ambiente de trabalho" : "Empreendedora organizando sua próxima contratação"} />
             <span className="eyebrow">
               {professional ? "PARA PROFISSIONAIS" : "PARA CONTRATANTES"}
             </span>

@@ -35,7 +35,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Avatar, DemoTag, Logo, services, type Audience } from "./shared";
+import { Avatar, DeveloperCredit, DemoTag, Logo, services, type Audience } from "./shared";
 const jobs = [
   {
     title: "Auxiliar de limpeza",
@@ -131,7 +131,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
   return (
     <div className={`dashboard-layout theme-${role} ${collapsed ? "sidebar-collapsed" : ""}`}>
       <aside className={`dashboard-sidebar ${mobile ? "sidebar-mobile-open" : ""}`}>
-        <Logo small />
+        <Logo small context={admin ? "Admin" : professional ? "Coop" : "Empresas"} />
         <div className="workspace-select">
           <span className="workspace-icon">
             {admin ? <ShieldCheck /> : professional ? <Users /> : <Building2 />}
@@ -146,7 +146,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
                     : "Área do contratante"}
               </strong>
               <small>
-                {admin ? "Freelas" : professional ? "Mariana Santos" : "Instituto Horizonte"}
+                {admin ? "Lílian · Demo" : professional ? "Mariana Santos" : "Juliana · Demo"}
               </small>
             </div>
           )}
@@ -851,6 +851,7 @@ export function Dashboard({ role = "contractor" }: { role?: Audience }) {
             <ShieldCheck size={13} /> Todos os nomes, indicadores e atividades são dados
             demonstrativos. <span>Freelas · Pessoas que conectam.</span>
           </div>
+          <div className="dashboard-developer-credit"><DeveloperCredit /></div>
         </main>
       </div>
       {mobile && <div className="sidebar-scrim" onClick={() => setMobile(false)} />}
